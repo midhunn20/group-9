@@ -73,3 +73,23 @@ int main() {
     return 0;
 }
     
+void add(struct library lib[], int *count, FILE *f1) {
+    getchar(); // Clear input buffer
+    printf("Enter book name: ");
+    fgets(lib[*count].book_name, sizeof(lib[*count].book_name), stdin);
+    lib[*count].book_name[strcspn(lib[*count].book_name, "\n")] = '\0'; // Remove newline from fgets
+
+    printf("Enter author name: ");
+    fgets(lib[*count].author, sizeof(lib[*count].author), stdin);
+    lib[*count].author[strcspn(lib[*count].author, "\n")] = '\0'; // Remove newline from fgets
+
+    printf("Enter pages: ");
+    scanf("%d", &lib[*count].pages);
+
+    printf("Enter price: ");
+    scanf("%f", &lib[*count].price);
+
+    fprintf(f1, "%s, %s, %d, %.2f\n", lib[*count].book_name, lib[*count].author, lib[*count].pages, lib[*count].price);
+
+    (*count)++;
+}
