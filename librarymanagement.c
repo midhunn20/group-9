@@ -93,3 +93,19 @@ void add(struct library lib[], int *count, FILE *f1) {
 
     (*count)++;
 }
+void cnt(int count) {
+    printf("\nNumber of books in library: %d\n", count);
+}
+
+void display(FILE *f1) {
+    rewind(f1);
+
+    printf("\nBooks in the library:\n");
+    struct library book;
+    while (fscanf(f1, "%99[^,], %99[^,], %d, %f\n", book.book_name, book.author, &book.pages, &book.price) != EOF) {
+        printf("Book Name: %s\n", book.book_name);
+        printf("Author: %s\n", book.author);
+        printf("Pages: %d\n", book.pages);
+        printf("Price: %.2f\n\n", book.price);
+    }
+}
