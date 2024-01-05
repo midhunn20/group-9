@@ -41,6 +41,7 @@ int main() {
 
     printf("\n\nEnter one of the above: ");
     scanf("%d", &input);
+    
     while (input != 0) {
         switch (input) {
             case 1:
