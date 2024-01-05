@@ -109,3 +109,24 @@ void display(FILE *f1) {
         printf("Price: %.2f\n\n", book.price);
     }
 }
+void dbINFO(struct library lib[], int count, FILE *f1) {
+    printf("Enter book name to display information: ");
+    char bookName[100];
+    getchar(); // Clear input buffer
+    fgets(bookName, sizeof(bookName), stdin);
+    bookName[strcspn(bookName, "\n")] = '\0'; // Remove newline from fgets
+
+    struct library book;
+    rewind(f1);
+
+    while (fscanf(f1, "%99[^,], %99[^,], %d, %f\n", book.book_name, book.author, &book.pages, &book.price) != EOF) {
+        if (strcmp(bookName, book.book_name) == 0) {
+            printf("Book Name: %s\n", book.book_name);
+            printf("Author: %s\n", book.author);
+            printf("Pages: %d\n", book.pages);
+            printf("Price: %.2f\n\n", book.price);
+            return;
+        }
+    }
+    printf("Book not found!\n");
+}
