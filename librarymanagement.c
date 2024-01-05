@@ -41,3 +41,34 @@ int main() {
 
     printf("\n\nEnter one of the above: ");
     scanf("%d", &input);
+    while (input != 0) {
+        switch (input) {
+            case 1:
+                add(lib, &count, f1);
+                break;
+            case 2:
+                cnt(count);
+                break;
+            case 3:
+                display(f1);
+                break;
+            case 4:
+                dbINFO(lib, count, f1);
+                break;
+            case 5:
+                author(lib, count, f1);
+                break;
+            default:
+                printf("Invalid input\n");
+                break;
+        }
+
+        printf("\n\nEnter one of the above: ");
+        scanf("%d", &input);
+    }
+
+    fclose(f1);
+
+    return 0;
+}
+    
