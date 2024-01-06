@@ -130,3 +130,21 @@ void dbINFO(struct library lib[], int count, FILE *f1) {
     }
     printf("Book not found!\n");
 }
+void author(struct library lib[], int count, FILE *f1) {
+    printf("Enter author name: ");
+    char authorName[100];
+    getchar(); // Clear input buffer
+    fgets(authorName, sizeof(authorName), stdin);
+    authorName[strcspn(authorName, "\n")] = '\0'; // Remove newline from fgets
+
+    printf("Books by author %s:\n", authorName);
+
+    struct library book;
+    rewind(f1);
+
+    while (fscanf(f1, "%99[^,], %99[^,], %d, %f\n", book.book_name, book.author, &book.pages, &book.price) != EOF) {
+        if (strcmp(authorName, book.author) == 0) {
+            printf("%s\n", book.book_name);
+        }
+    }
+}
