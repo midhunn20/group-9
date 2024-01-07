@@ -39,7 +39,7 @@ int main() {
     printf("5. List all books of given author\n");
     printf("0. Exit");
 
-    printf("\n\nEnter one of the above: ");
+    printf("\n\nEnter one of the options: ");
     scanf("%d", &input);
     
     while (input != 0) {
