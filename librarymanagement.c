@@ -64,7 +64,7 @@ int main() {
                 break;
         }
 
-        printf("\n\nEnter one of the above: ");
+        printf("\n\nEnter one of the options: ");
         scanf("%d", &input);
     }
 
